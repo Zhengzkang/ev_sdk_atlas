@@ -42,6 +42,7 @@ ev_sdk
 
 1. 获取demo源码,将源码拷贝至目标路径/usr/local/ev_sdk（**注意！！！整个demo是属于一个git工程，避免将git工程的隐藏文件，如.git目录，放到目标路径/usr/local/ev_sdk中,因为ev_sdk目录也是一个git工程目录；建议是拷贝而不是直接把demo的目录名称重命名为ev_sdk而把原始ev_sdk覆盖掉或者把原始ev_sdk工程目录删掉；否则容易引起一些未知的错误**）。
 2. **对应的.onnx模型文件放在/usr/local/ev_sdk/model目录里，程序在运行时会判断.om文件是否存在，如果不存在，程序会获取当前设备的芯片型号并且做atc转换生成.om文件，不需要开发者在终端手动输入atc转换指令的**。
+查看昇腾芯片型号的一个小技巧，在终端输入 python3 -c "import acl;print(acl.get_soc_name())"
 3. 添加修改算法业务逻辑代码后编译ev_sdk，注意修改ji.cpp中的版本号algo_version,执行完成之后，`/usr/local/ev_sdk/lib`下将生成`libji.so`和相关的依赖库，以及`/usr/local/ev_sdk/bin/`下的测试程序`test-ji-api`。需要注意的是**一定要有install,目的是将相应地库都安装到ev_sdk/lib下面**
   ```shell
         #编译SDK库
