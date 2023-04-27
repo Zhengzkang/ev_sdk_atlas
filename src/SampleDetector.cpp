@@ -170,6 +170,7 @@ STATUS SampleDetector::UnInit()
     TRY_RELEASE_POINTER(mModelWptr, aclrtFree);
 
     TRY_DELETE_POINTER(m_output_buffer_host, delete[]);
+    TRY_RELEASE_POINTER(m_output_buffer, aclrtFree);
 
     aclmdlDestroyDesc(m_model_desc);
     if(m_model_id > 0)
