@@ -284,7 +284,7 @@ void SampleDetector::decode_outputs(float* prob, std::vector<BoxInfo>& objects, 
             float y = prob[index + 1] / scale;
             float w = prob[index + 2] / scale;
             float h = prob[index + 3] / scale;
-            float* max_cls_pos = std::max_element(prob + index + 5, prob + index + 4 + m_iClassNums);
+            float* max_cls_pos = std::max_element(prob + index + 5, prob + index + 5 + m_iClassNums);
             if((*max_cls_pos) * prob[index+4] > mThresh)
             {
                 cv::Rect box{x- w * 0.5, y - h * 0.5, w, h};
